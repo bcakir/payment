@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/payment', 'PaymentController@index');
+Route::get('/paymentGateway', 'PaymentGatewayController@index');

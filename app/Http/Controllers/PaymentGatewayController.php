@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\PaymentGateway\PaymentGatewayInterface as PaymentGatewayInterface;
 
-class PaymentController extends Controller
+class PaymentGatewayController extends Controller
 {
     
     public function __construct(PaymentGatewayInterface $payment)

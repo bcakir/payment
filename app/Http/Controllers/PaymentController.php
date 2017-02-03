@@ -4,18 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use Illuminate\Http\Request;
+use App\Repositories\Payment\PaymentInterface as PaymentInterface;
+
 class PaymentController extends Controller
 {
-    /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function showProfile($id)
+    
+    public function __construct(PaymentInterface $payment)
     {
-        return $id;
-        //return view('user.profile', ['user' => $id]);
+        $this->payment = $payment;
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $payments = $this->payment->getAll();
+        
+        return $payments;
+        
+        return view('users.index',['users']);
+    }
+
+    
 }

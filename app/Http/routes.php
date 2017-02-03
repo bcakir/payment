@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{id}', 'PaymentController@showProfile');
+Route::get('/payment', 'PaymentController@index');

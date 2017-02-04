@@ -159,7 +159,6 @@ return [
         /*
          * Repository Service Providers...
          */
-		App\Repositories\Payment\PaymentRepoServiceProvider::class,
 		App\Repositories\PaymentGateway\PaymentGatewayRepoServiceProvider::class,
     ],
 

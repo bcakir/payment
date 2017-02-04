@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PaymentGatewayRepoServiceProvider extends ServiceProvider
 {
     
-    protected $availableServices = ['PaypalRepository', 'PaytrekRepository'];
+    protected $availableServices = ['Paypal', 'Payu', 'Paytrek'];
     
     /**
      * Bootstrap the application services.
@@ -32,9 +32,9 @@ class PaymentGatewayRepoServiceProvider extends ServiceProvider
     
     public function registerService(Request $request)
     {
-        $selected = studly_case($request->get('user_selection'));
-        $service = (in_array($selected, $this->availableServices)) ? $selected : 'PaytrekRepository';
-        $this->app->bind('App\Repositories\PaymentGateway\PaymentGatewayInterface', "App\Repositories\PaymentGateway\\{$service}");
+        $selected = studly_case($request->get('paymentGateway', 'Paypal'));
+        $service = (in_array($selected, $this->availableServices)) ? $selected : 'Paypal';
+        $this->app->bind('App\Repositories\PaymentGateway\PaymentGatewayInterface', "App\Repositories\PaymentGateway\\{$service}Repository");
     }
     
 }

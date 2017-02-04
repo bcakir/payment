@@ -6,7 +6,7 @@ use App\Repositories\PaymentGateway\PaymentGatewayInterface as PaymentGatewayInt
 use App\Models\PaymentGateway;
 use Mail;
 
-class PaypalRepository implements PaymentGatewayInterface
+class PayuRepository implements PaymentGatewayInterface
 {
     public $gateway;
     private $currency;

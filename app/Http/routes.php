@@ -11,8 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/{id}', 'PaymentController@showProfile');
+Route::get('/', 'PaymentController@index');
+Route::post('/', 'PaymentController@checkout');
